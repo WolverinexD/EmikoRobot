@@ -4,6 +4,7 @@ import json
 import importlib
 import time
 import re
+from AsyncioCurl import AsyncioCurl
 import sys
 import traceback
 import EmikoRobot.modules.sql.users_sql as sql
