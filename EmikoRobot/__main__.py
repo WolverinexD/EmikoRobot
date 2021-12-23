@@ -129,6 +129,7 @@ DATA_EXPORT = []
 CHAT_SETTINGS = {}
 USER_SETTINGS = {}
 
+
 for module_name in ALL_MODULES:
     imported_module = importlib.import_module("EmikoRobot.modules." + module_name)
     if not hasattr(imported_module, "__mod_name__"):
@@ -163,7 +164,6 @@ for module_name in ALL_MODULES:
 
     if hasattr(imported_module, "__user_settings__"):
         USER_SETTINGS[imported_module.__mod_name__.lower()] = imported_module
-
 
 
 # do not async
