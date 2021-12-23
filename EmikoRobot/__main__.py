@@ -217,12 +217,13 @@ def start(update: Update, context: CallbackContext):
         else:
             first_name = update.effective_user.first_name
             update.effective_message.reply_text(
-                PM_START_TEXT.format(              
+                PM_START_TEXT,              
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
                 disable_web_page_preview=False,
             )
+                
     else:
         update.effective_message.reply_text(
             f"<b>Hɪ! ɪ Aᴍ Lɪᴠᴠʏ</b>\n<b>Wᴏʀᴋɪɴɢ Sɪɴᴄᴇ:</b> <code>{uptime}</code>",
