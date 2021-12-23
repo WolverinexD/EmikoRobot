@@ -455,7 +455,7 @@ def livvy_about_callback(update, context):
         )
 
 
-    elif query.data == livvy__credit":
+    elif query.data == "livvy__credit":
         query.message.edit_text(
             text=f"๏ Credis for Livvy\n"
             "\nHere Developers Making And Give Inspiration For Made The LivvyBot",
