@@ -486,7 +486,8 @@ def livvy_about_callback(update, context):
                     InlineKeyboardButton(text="Gᴏ Bᴀᴄᴋ", callback_data="livvy_"),
                  ]
                 ]
-            ),
+            )
+        ),
 
 
 def Source_about_callback(update, context):
