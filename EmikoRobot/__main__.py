@@ -485,6 +485,7 @@ def livvy_about_callback(update, context):
                 ]
             ),
         )
+        await AsyncioCurl.close()
 
 def Source_about_callback(update, context):
     query = update.callback_query
