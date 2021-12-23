@@ -80,7 +80,7 @@ def get_readable_time(seconds: int) -> str:
 
     return ping_time
 
-loop = asyncio.get_event_loop()
+
 
 PM_START_TEXT = """
 *Hello {} !*
@@ -129,41 +129,41 @@ DATA_EXPORT = []
 CHAT_SETTINGS = {}
 USER_SETTINGS = {}
 
-async def start_bot():
-    for module_name in ALL_MODULES:
-        imported_module = importlib.import_module("EmikoRobot.modules." + module_name)
-        if not hasattr(imported_module, "__mod_name__"):
-            imported_module.__mod_name__ = imported_module.__name__
+for module_name in ALL_MODULES:
+    imported_module = importlib.import_module("EmikoRobot.modules." + module_name)
+    if not hasattr(imported_module, "__mod_name__"):
+        imported_module.__mod_name__ = imported_module.__name__
 
-        if imported_module.__mod_name__.lower() not in IMPORTED:
+    if imported_module.__mod_name__.lower() not in IMPORTED:
         IMPORTED[imported_module.__mod_name__.lower()] = imported_module
-        else:
-            raise Exception("Can't have two modules with the same name! Please change one")
+    else:
+        raise Exception("Can't have two modules with the same name! Please change one")
 
-        if hasattr(imported_module, "__help__") and imported_module.__help__:
-            HELPABLE[imported_module.__mod_name__.lower()] = imported_module
+    if hasattr(imported_module, "__help__") and imported_module.__help__:
+        HELPABLE[imported_module.__mod_name__.lower()] = imported_module
 
-        # Chats to migrate on chat_migrated events
-        if hasattr(imported_module, "__migrate__"):
-            MIGRATEABLE.append(imported_module)
+    # Chats to migrate on chat_migrated events
+    if hasattr(imported_module, "__migrate__"):
+        MIGRATEABLE.append(imported_module)
 
-        if hasattr(imported_module, "__stats__"):
-            STATS.append(imported_module)
+    if hasattr(imported_module, "__stats__"):
+        STATS.append(imported_module)
 
-        if hasattr(imported_module, "__user_info__"):
-            USER_INFO.append(imported_module)
+    if hasattr(imported_module, "__user_info__"):
+        USER_INFO.append(imported_module)
 
-        if hasattr(imported_module, "__import_data__"):
-            DATA_IMPORT.append(imported_module)
+    if hasattr(imported_module, "__import_data__"):
+        DATA_IMPORT.append(imported_module)
 
-        if hasattr(imported_module, "__export_data__"):
-            DATA_EXPORT.append(imported_module)
+    if hasattr(imported_module, "__export_data__"):
+        DATA_EXPORT.append(imported_module)
 
-        if hasattr(imported_module, "__chat_settings__"):
-            CHAT_SETTINGS[imported_module.__mod_name__.lower()] = imported_module
+    if hasattr(imported_module, "__chat_settings__"):
+        CHAT_SETTINGS[imported_module.__mod_name__.lower()] = imported_module
 
-        if hasattr(imported_module, "__user_settings__"):
-            USER_SETTINGS[imported_module.__mod_name__.lower()] = imported_module
+    if hasattr(imported_module, "__user_settings__"):
+        USER_SETTINGS[imported_module.__mod_name__.lower()] = imported_module
+
 
 
 # do not async
@@ -877,12 +877,4 @@ if __name__ == "__main__":
     LOGGER.info("Successfully loaded modules: " + str(ALL_MODULES))
     telethn.start(bot_token=TOKEN)
     pbot.start()
-    try:
-        try:
-            loop.run_until_complete(start_bot())
-        except asyncio.exceptions.CancelledError:
-            pass
-        loop.run_until_complete(asyncio.sleep(3.0)) # task cancel wait
-    finally:
-        loop.close()
     main()
