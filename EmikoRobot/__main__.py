@@ -82,15 +82,13 @@ def get_readable_time(seconds: int) -> str:
 
 
 PM_START_TEXT = """
-*Hello {} !*\n
-☆ 𝐈 𝐀𝐦 𝐋𝐢𝐯𝐯𝐲🥀☘, 𝐀 𝐌𝐨𝐝𝐮𝐥𝐚𝐫 𝐆𝐫𝐨𝐮𝐩 𝐌𝐚𝐧𝐚𝐠𝐞𝐫 𝐁𝐨𝐭. [💫](https://telegra.ph/file/bef15d8b49003bc749b66.jpg)\n\n
+*Hello {} !* 𝐈 𝐀𝐦 𝐋𝐢𝐯𝐯𝐲🥀☘, 𝐀 𝐌𝐨𝐝𝐮𝐥𝐚𝐫 𝐆𝐫𝐨𝐮𝐩 𝐌𝐚𝐧𝐚𝐠𝐞𝐫 𝐁𝐨𝐭. [💫](https://telegra.ph/file/bef15d8b49003bc749b66.jpg)
 ________________
 × *Uptime:* `{}`
 × `{}` *users, across* `{}` *chats.*
 _______________
 ➾ Hɪᴛ /help Iꜰ Yᴏᴜ Nᴇᴇᴅ Aɴʏ Hᴇʟᴘ
 """
-
 buttons = [
     [
         InlineKeyboardButton(text="𝐀𝐛𝐨𝐮𝐭 𝐋𝐢𝐯𝐯𝐲", callback_data="livvy_"),
